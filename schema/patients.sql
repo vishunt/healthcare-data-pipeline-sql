@@ -1,0 +1,8 @@
+CREATE TABLE Patients
+(
+    PatientID INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(100),
+    DOB DATE,
+    Gender VARCHAR(10),
+    CreatedDate DATETIME DEFAULT GETDATE()
+);
