@@ -12,3 +12,5 @@ INSERT INTO LabResults (PatientID, TestName, ResultValue, ResultDate)
 VALUES
 (1, 'Blood Test', 'Normal', GETDATE()),
 (2, 'X-Ray', 'Clear', GETDATE());
+
+

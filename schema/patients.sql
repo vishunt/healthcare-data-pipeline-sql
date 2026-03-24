@@ -1,8 +1,11 @@
-CREATE TABLE Patients
+USE HealthcareLab;
+GO
+
+CREATE TABLE Staging_Patients
 (
-    PatientID INT IDENTITY(1,1) PRIMARY KEY,
+    PatientID INT,
     Name VARCHAR(100),
     DOB DATE,
     Gender VARCHAR(10),
-    CreatedDate DATETIME DEFAULT GETDATE()
+    LoadDate DATETIME DEFAULT GETDATE()
 );
