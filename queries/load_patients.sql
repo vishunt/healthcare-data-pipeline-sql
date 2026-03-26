@@ -3,7 +3,7 @@ USE HealthcareLab;
 DECLARE @InsertedCount INT;
 DECLARE @LastLoadDate DATETIME;
 
-SELECT @LastLoadDate = MAX(LastProcessedDate)
+SELECT @LastLoadDate = ISNULL(MAX(LastProcessedDate), '1900-01-01')
 FROM Load_Log;
 
 IF @LastLoadDate IS NULL
@@ -23,7 +23,7 @@ WITH RankedPatients AS
         ) AS rn
     FROM Staging_Patients
     WHERE DOB IS NOT NULL
-      AND LoadDate > @LastLoadDate
+       AND LoadDate > DATEADD(DAY, -2, @LastLoadDate) 
 )
 
 INSERT INTO Patients (Name, DOB, Gender)
